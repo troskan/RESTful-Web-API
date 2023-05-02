@@ -7,9 +7,10 @@ namespace RESTful_Web_API.Models
         [Key]
         public int PersonID { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string FirstName { get; set; }
         [Required]
-        public int PhoneNumber { get; set; }
-        public ICollection<Interest> Interest { get; set; }
+        public string LastName { get; set; }
+        [Required]
+        public int Phone { get; set; }
     }
 }
