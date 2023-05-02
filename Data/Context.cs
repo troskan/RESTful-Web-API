@@ -1,22 +1,28 @@
 ﻿using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using RESTful_Web_API.Models;
 
 namespace RESTful_Web_API.Data
 {
     public class Context : DbContext
     {
+        public Context(DbContextOptions<Context> options) : base(options)
+        {
+            
+        }
         public DbSet<Person> Person { get; set; }
         public DbSet<Hobby> Hobby { get; set; }
         public DbSet<Link> Link { get; set; }
         public DbSet<PersonHobby> PersonHobby { get; set; }
+     
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Person>().HasData(new Person { PersonID = 1, FirstName = "Arne",LastName = "Trampo", Phone = 123483723});
             modelBuilder.Entity<Person>().HasData(new Person { PersonID = 2, FirstName = "Börje",LastName = "Severinsson", Phone = 124383723});
             modelBuilder.Entity<Person>().HasData(new Person { PersonID = 3, FirstName = "Sara",LastName = "Palmqvist", Phone = 123443723});
-            modelBuilder.Entity<Person>().HasData(new Person { PersonID = 3, FirstName = "Reidar",LastName = "Folkesson", Phone = 123543723});
+            modelBuilder.Entity<Person>().HasData(new Person { PersonID = 4, FirstName = "Reidar",LastName = "Folkesson", Phone = 123543723});
             modelBuilder.Entity<Person>().HasData(new Person { PersonID = 5, FirstName = "Elina", LastName = "Johansson", Phone = 125483723 });
             modelBuilder.Entity<Person>().HasData(new Person { PersonID = 6, FirstName = "Hans", LastName = "Gustavsson", Phone = 126383723 });
             modelBuilder.Entity<Person>().HasData(new Person { PersonID = 7, FirstName = "Lena", LastName = "Karlsson", Phone = 127443723 });
@@ -51,7 +57,6 @@ namespace RESTful_Web_API.Data
             modelBuilder.Entity<PersonHobby>().HasData(new PersonHobby { PersonHobbyID = 8, HobbyID = 4, PersonID = 8, LinkID = 8 });
             modelBuilder.Entity<PersonHobby>().HasData(new PersonHobby { PersonHobbyID = 9, HobbyID = 1, PersonID = 9, LinkID = 9 });
             modelBuilder.Entity<PersonHobby>().HasData(new PersonHobby { PersonHobbyID = 10, HobbyID = 2, PersonID = 10, LinkID = 10 });
-
 
         }
     }

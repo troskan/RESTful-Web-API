@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using RESTful_Web_API.Data;
+using RESTful_Web_API.Models;
+using RESTful_Web_API.Services;
 
 namespace RESTful_Web_API
 {
@@ -19,6 +21,8 @@ namespace RESTful_Web_API
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
             });
+
+            builder.Services.AddScoped<IWebApi<Person>, PersonRepository>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
