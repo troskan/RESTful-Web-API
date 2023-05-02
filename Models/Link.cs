@@ -11,5 +11,7 @@ namespace RESTful_Web_API.Models
         [Required]
         public string LinkURL { get; set; }
 
+
+
     }
 }

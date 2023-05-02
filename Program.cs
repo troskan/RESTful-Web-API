@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using RESTful_Web_API.Data;
+
 namespace RESTful_Web_API
 {
     public class Program
@@ -12,9 +15,9 @@ namespace RESTful_Web_API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddDbContext<SomeDbContext>(options =>
+            builder.Services.AddDbContext<Context>(options =>
             {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
             });
             var app = builder.Build();
 

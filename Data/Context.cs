@@ -40,8 +40,17 @@ namespace RESTful_Web_API.Data
             modelBuilder.Entity<Link>().HasData(new Link { LinkID = 8, LinkName = "Pinterest", LinkURL = "http://www.pinterest.com" });
             modelBuilder.Entity<Link>().HasData(new Link { LinkID = 9, LinkName = "Tumblr", LinkURL = "http://www.tumblr.com" });
             modelBuilder.Entity<Link>().HasData(new Link { LinkID = 10, LinkName = "Snapchat", LinkURL = "http://www.snapchat.com" });
-           
-            modelBuilder.Entity<PersonHobby>().HasData(new Link { LinkID = 10, LinkName = "Snapchat", LinkURL = "http://www.snapchat.com" });
+
+            modelBuilder.Entity<PersonHobby>().HasData(new PersonHobby { PersonHobbyID = 1, HobbyID = 1, PersonID = 1, LinkID = 1 });
+            modelBuilder.Entity<PersonHobby>().HasData(new PersonHobby { PersonHobbyID = 2, HobbyID = 2, PersonID = 2, LinkID = 2 });
+            modelBuilder.Entity<PersonHobby>().HasData(new PersonHobby { PersonHobbyID = 3, HobbyID = 3, PersonID = 3, LinkID = 3 });
+            modelBuilder.Entity<PersonHobby>().HasData(new PersonHobby { PersonHobbyID = 4, HobbyID = 4, PersonID = 4, LinkID = 4 });
+            modelBuilder.Entity<PersonHobby>().HasData(new PersonHobby { PersonHobbyID = 5, HobbyID = 1, PersonID = 5, LinkID = 5 });
+            modelBuilder.Entity<PersonHobby>().HasData(new PersonHobby { PersonHobbyID = 6, HobbyID = 2, PersonID = 6, LinkID = 6 });
+            modelBuilder.Entity<PersonHobby>().HasData(new PersonHobby { PersonHobbyID = 7, HobbyID = 3, PersonID = 7, LinkID = 7 });
+            modelBuilder.Entity<PersonHobby>().HasData(new PersonHobby { PersonHobbyID = 8, HobbyID = 4, PersonID = 8, LinkID = 8 });
+            modelBuilder.Entity<PersonHobby>().HasData(new PersonHobby { PersonHobbyID = 9, HobbyID = 1, PersonID = 9, LinkID = 9 });
+            modelBuilder.Entity<PersonHobby>().HasData(new PersonHobby { PersonHobbyID = 10, HobbyID = 2, PersonID = 10, LinkID = 10 });
 
 
         }
