@@ -1,10 +1,9 @@
-﻿using RESTful_Web_API.Data;
-
-namespace RESTful_Web_API.Services
+﻿namespace RESTful_Web_API.Services
 {
-    public interface IWebApi<T>
+    public interface IHobby<T>
     {
         Task<IEnumerable<T>> GetAll();
+
         Task<T> Get(int id);
         Task<T> Add(T newObject);
         Task Delete(int id);

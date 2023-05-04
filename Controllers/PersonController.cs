@@ -9,21 +9,31 @@ namespace RESTful_Web_API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PersonController : Controller
+    public class PersonController : ControllerBase
     {
-        private readonly IWebApi<Person> _IWebApi;
-        public PersonController(IWebApi<Person> IWebApi)
+        private readonly IPersonRepository<Person> _IPersonRepository;
+        public PersonController(IPersonRepository<Person> IPersonRepository)
         {
-            _IWebApi = IWebApi;
+            _IPersonRepository = IPersonRepository;
         }
-        
+        [HttpGet("GetHobbysBy/{id:int}")]
+        public async Task<IActionResult> GetHobbysByID(int id)
+        {
+            return Ok(await _IPersonRepository.GetHobbys(id));
+        }
+        [HttpGet("GetLinksBy/{id:int}")]
+        public async Task<IActionResult> GetLinksByID(int id)
+        {
+            return Ok(await _IPersonRepository.GetLinks(id));
+        }
+
         [HttpGet]
         public async Task<ActionResult<Person>> GetAll()
         {
             try
             {
 
-            return Ok(await  _IWebApi.GetAll());
+            return Ok(await _IPersonRepository.GetAll());
             }
             catch (Exception)
             {
@@ -36,7 +46,7 @@ namespace RESTful_Web_API.Controllers
         {
             try
             {
-                return Ok(await _IWebApi.Add(newPerson));
+                return Ok(await _IPersonRepository.Add(newPerson));
             }
             catch (Exception)
             {

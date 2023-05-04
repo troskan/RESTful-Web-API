@@ -5,13 +5,37 @@ using RESTful_Web_API.Models;
 
 namespace RESTful_Web_API.Services
 {
-    public class PersonRepository : IWebApi<Person>
+    public class PersonRepository : IPersonRepository<Person>
     {
         private Context _db;
         public PersonRepository(Context db)
         {
             _db = db;
         }
+        public async Task<IEnumerable<Hobby>> GetHobbys(int id)
+        {
+            var query =
+            from ph in _db.PersonHobby
+            join h in _db.Hobby on ph.HobbyID equals h.HobbyID
+            join p in _db.Person on ph.PersonID equals p.PersonID
+            where ph.PersonID == id
+            select h;
+            //select $"ID:{p.PersonID}, Name:{p.FirstName}, HobbyID:{ph.HobbyID} Hobby name:{h.HobbyName}";
+
+            return await query.ToListAsync();
+        } 
+        public async Task<IEnumerable<Link>> GetLinks(int id)
+        {
+            var query =
+            from ph in _db.PersonHobby
+            join l in _db.Link on ph.LinkID equals l.LinkID
+            join p in _db.Person on ph.PersonID equals p.PersonID
+            where ph.PersonID == id
+            select l;
+
+            return await query.ToListAsync();
+        }
+    
         public async Task<Person> Add(Person newObject)
         {
             if (newObject == null)
@@ -48,5 +72,6 @@ namespace RESTful_Web_API.Services
         {
             throw new NotImplementedException();
         }
+
     }
 }
