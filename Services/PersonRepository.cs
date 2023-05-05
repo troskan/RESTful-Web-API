@@ -34,7 +34,8 @@ namespace RESTful_Web_API.Services
             select l;
 
             return await query.ToListAsync();
-        }
+        } 
+        
     
         public async Task<Person> Add(Person newObject)
         {

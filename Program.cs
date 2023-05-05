@@ -25,7 +25,6 @@ namespace RESTful_Web_API
             builder.Services.AddScoped<IPersonRepository<Person>, PersonRepository>();
             builder.Services.AddScoped<IHobby<Hobby>, HobbyRepository>();
             builder.Services.AddScoped<IWebApi<PersonHobby>, PersonHobbyRepository>();
-
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

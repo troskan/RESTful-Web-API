@@ -20,7 +20,7 @@ namespace RESTful_Web_API.Controllers
         public async Task<IActionResult> GetHobbysByID(int id)
         {
             return Ok(await _IPersonRepository.GetHobbys(id));
-        }
+        } 
         [HttpGet("GetLinksBy/{id:int}")]
         public async Task<IActionResult> GetLinksByID(int id)
         {
