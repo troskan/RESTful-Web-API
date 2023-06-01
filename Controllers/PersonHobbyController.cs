@@ -33,7 +33,7 @@ namespace RESTful_Web_API.Controllers
                 result.LinkID = newObject.LinkID;
 
 
-                return Ok(_IWebApi.Add(result));
+                return Ok(await _IWebApi.Add(result));
             }
             catch (Exception)
             {

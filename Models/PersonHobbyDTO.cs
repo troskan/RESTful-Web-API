@@ -1,4 +1,6 @@
-﻿namespace RESTful_Web_API.Models
+﻿using System.Text.Json.Serialization;
+
+namespace RESTful_Web_API.Models
 {
     public class PersonHobbyDTO
     {

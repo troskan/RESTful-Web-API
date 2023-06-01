@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using RESTful_Web_API.Data;
 using RESTful_Web_API.Models;
 using System.ComponentModel.DataAnnotations;
@@ -18,8 +19,8 @@ namespace RESTful_Web_API.Services
             if (newObject == null)
             {
                 return null;
-
             }
+
             _db.PersonHobby.Add(newObject);
             await _db.SaveChangesAsync();
             return newObject;
